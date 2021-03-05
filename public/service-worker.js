@@ -13,6 +13,8 @@ const FILES_TO_CACHE = [
     "/dist/icon_384x384.png",
     "/dist/icon_512x512.png",
     "/dist/manifest.json",
+    "/db.js",
+    "/index.js"
 ];
   
   const CACHE_NAME = "static-cache-v2";

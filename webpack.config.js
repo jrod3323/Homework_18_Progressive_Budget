@@ -2,10 +2,13 @@ const WebpackPwaManifest = require("webpack-pwa-manifest");
 const path = require("path");
 
 const config = {
-  entry: "./public/assets/js/app.js",
+  entry: {
+      index: "./public/index.js",
+      db: "./public/db.js"
+  },
   output: {
     path: __dirname + "/public/dist",
-    filename: "bundle.js"
+    filename: "[name].bundle.js"
   },
   mode: "production",
   plugins: [
@@ -21,8 +24,8 @@ const config = {
       // files predictable making it easier to refer to them in our code
       fingerprints: false,
 
-      name: "Images App",
-      short_name: "Images App",
+      name: "Budget App",
+      short_name: "Budget App",
       theme_color: "#ffffff",
       background_color: "#ffffff",
       start_url: "/",
@@ -31,8 +34,7 @@ const config = {
       icons: [
         {
           src: path.resolve(
-            __dirname,
-            "public/icons/icon-512x512.png"
+            "./public/icons/icon-512x512.png"
             ),
           // the plugin will generate an image for each size
           // included in the size array
@@ -42,3 +44,5 @@ const config = {
     })
   ]
 };
+
+module.exports = config;
